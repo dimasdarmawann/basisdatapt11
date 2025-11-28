@@ -1,0 +1,60 @@
+CREATE DATABASE ROUTINE;
+USE ROUTINE;
+
+CREATE FUNCTION fungsi1(a SMALLINT)RETURNS INT DETERMINISTIC RETURN (a + a);
+
+SELECT fungsi1(60);
+
+CREATE FUNCTION fungsi2(kar CHAR(50))RETURNS INT DETERMINISTIC RETURN LENGTH(kar);
+
+SELECT fungsi2('MySQL');
+
+CREATE FUNCTION fungsi3(a SMALLINT)RETURNS INT DETERMINISTIC RETURN (a + a);
+
+SELECT fungsi3(10);
+
+SHOW CREATE FUNCTION fungsi1;
+SHOW CREATE FUNCTION fungsi2;
+SHOW CREATE FUNCTION fungsi3;
+
+DROP FUNCTION fungsi3;
+
+DROP DATABASE IF EXISTS sekolah;
+CREATE DATABASE sekolah;
+USE sekolah;
+
+DROP TABLE IF EXISTS siswa;
+CREATE TABLE siswa (
+    nis VARCHAR(15) PRIMARY KEY,
+    nama CHAR(20),
+    angkatan VARCHAR(30)
+);
+
+INSERT INTO siswa VALUES ('11234', 'ana', '2008/2009');
+INSERT INTO siswa VALUES ('11235', 'bayu', '2009/2010');
+INSERT INTO siswa VALUES ('11236', 'canda', '2010/2011');
+INSERT INTO siswa VALUES ('11237', 'dirga', '2012/2013');
+INSERT INTO siswa VALUES ('11238', 'endang', '2013/2014');
+
+SELECT * FROM siswa;
+
+DROP DATABASE IF EXISTS toko;
+CREATE DATABASE toko;
+USE toko;
+
+DROP TABLE IF EXISTS barang;
+CREATE TABLE barang (
+    NamaBarang VARCHAR(50),
+    Satuan VARCHAR(20),
+    Harga INT,
+    Jumlah INT
+);
+
+INSERT INTO barang VALUES ('Sabun', 'Bungkus', 3000, 20);
+INSERT INTO barang VALUES ('Sikat gigi', 'Bungkus', 4000, 50);
+INSERT INTO barang VALUES ('Sampho', 'Botol', 10000, 30);
+INSERT INTO barang VALUES ('Kopi', 'Kg', 30000, 20);
+INSERT INTO barang VALUES ('Teh', 'Bungkus', 5000, 40);
+INSERT INTO barang VALUES ('Beras', 'Kg', 10000, 10);
+
+SELECT * FROM barang;
